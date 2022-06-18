@@ -16,4 +16,15 @@ router.get('/', function(req, res, next) {
 
 });
 
+/* GET article/:id */
+ router.get('/article/:id',(req,res,nex)=>{
+     Article.findOne({_id:req.params.id})
+         .then((article)=>{
+             res.render('single-article',{article});
+             console.log(article)
+         })
+         .catch((err)=>{
+             res.redirect('/');
+         })
+ });
 module.exports = router;

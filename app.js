@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const Article = require('./models/article.model');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -13,6 +14,15 @@ const {log} = require("debug");
 mongoose.connect('mongodb://localhost:27017/blog')
     .then(()=> console.log('La connexion à MongoDB réussie'))
     .catch(()=>console.log('Echec de le connexion à MongoDB'));
+
+for (let i = 0; i < 8; i++) {
+  article = new Article({
+    name :'Qu\'est-ce que  le Lorem ipsum dolor sit amet ?',
+    content:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibus',
+    publishedAt: Date.now()
+  })
+  //article.save();
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
