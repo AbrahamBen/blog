@@ -5,11 +5,17 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const Article = require('./models/article.model');
 const Category = require('./models/category.model');
+const bodyParser =  require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+//Prise en charge du json
+app.use(bodyParser.json());
+
+//Prise en charge des formulaires HTML
+app.use(bodyParser.urlencoded({extended:false}));
 const mongoose = require('mongoose');
 const {log} = require("debug");
 mongoose.connect('mongodb://localhost:27017/blog')
@@ -30,7 +36,7 @@ for (let i = 0; i < 8; i++) {
     title :'Formation JavaScript',
     description:'LHic oreutatisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibus',
   })
-  category.save();
+  //category.save();
 }
 
 // view engine setup

@@ -1,5 +1,7 @@
 {% extends 'layout.twig' %}
 {% block body %}
+    {% if success %}<div class="alert alert-success mt-2">{{ success }}</div>{% endif %}
+    {% if error %}<div class="alert alert-danger mt-2">{{ error }}</div>{% endif %}
     <form class="mt-2" action="/add-article" method="POST">
         <div class="form-group">
             <label for="title">Titre :</label>

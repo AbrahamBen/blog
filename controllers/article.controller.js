@@ -41,3 +41,36 @@ Category.find()
         res.redirect('/');
     });
 }
+
+/**
+ * Add article
+ */
+exports.addOne = (req,res)=>{
+    let  article = new Article({
+        ...req.body,
+        publishedAt:Date.now()
+    });
+
+    article.save((err,article)=>{
+        if(err){
+            Category.find()
+                .then((categories)=>{
+                    res.render('add-article',{categories:categories,error:'Une erreur est survenue lors de l\'ajout de l\'article. Veuillez réessayer plus tard'});
+                })
+                .catch(()=>{
+                    res.redirect('/');
+                })
+            //res.render('add-article',{error:'Une erreur est survenue lors de l\'ajout de l\'article. Veuillez réessayer plus tard'});
+        }else{
+            Category.find()
+                .then((categories)=>{
+                    //res.render('add-article',{categories:categories,error:'Une erreur est survenue lors de l\'ajout de l\'article. Veuillez réessayer plus tard'});
+                    res.render('add-article',{categories:categories,success:'Félicitation!! votre article a été ajouté avec succès'});
+                })
+                .catch(()=>{
+                    res.redirect('/');
+                })
+            //res.render('add-article',{success:'Félicitation!! votre article a été ajouté avec succès'});
+        }
+    });
+}

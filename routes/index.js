@@ -11,4 +11,6 @@ router.get('/', articleController.list);
 
 /* GET /add-article */
  router.get('/add-article',articleController.add);
+
+ router.post('/add-article',articleController.addOne)
 module.exports = router;
