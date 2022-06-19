@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const Article = require('./models/article.model');
+const Category = require('./models/category.model');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -17,11 +18,19 @@ mongoose.connect('mongodb://localhost:27017/blog')
 
 for (let i = 0; i < 8; i++) {
   article = new Article({
-    name :'Qu\'est-ce que  le Lorem ipsum dolor sit amet ?',
+    title :'Qu\'est-ce que  le Lorem ipsum dolor sit amet ?',
     content:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibus',
     publishedAt: Date.now()
   })
   //article.save();
+}
+
+for (let i = 0; i < 8; i++) {
+  category = new Category({
+    title :'Formation JavaScript',
+    description:'LHic oreutatisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibusLorem ipsum dolor sit amet, consectetur adipisicing elit. Hic incidunt modi non porro soluta, tempore. Deleniti dolores exercitationem, facilis, ipsam mollitia, nisi nostrum nulla odit quaerat quam quo reprehenderit voluptatibus',
+  })
+  category.save();
 }
 
 // view engine setup
